@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 32 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Fade Out"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayerTransition/BlackRect:color")
@@ -69,16 +69,15 @@ __meta__ = {
 [node name="CanvasLayerTransition" type="CanvasLayer" parent="."]
 
 [node name="BlackRect" type="ColorRect" parent="CanvasLayerTransition"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Fade Out" = SubResource( 3 )
+"anims/Fade Out" = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_StairsChangeFloor_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_StairsChangeFloor_body_exited"]

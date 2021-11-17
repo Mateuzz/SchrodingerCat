@@ -3,6 +3,9 @@ tool
 
 export(String, FILE) var next_floor := ""
 
+# ainda nao utilizado
+export var next_floor_spawn_location := Vector2.ZERO
+
 func _get_configuration_warning() -> String:
 	if next_floor == "":
 		return "Stairs must have next floor attached"
