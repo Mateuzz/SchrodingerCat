@@ -4,6 +4,12 @@ func _physics_process(delta: float) -> void:
 	var jump_was_interrupted = Input.is_action_just_released("move_jump") and velocity.y < 0
 	var direction = get_direction()
 	velocity = calculate_velocity(direction, jump_was_interrupted)
+		
+	if direction.x < 0:
+		$Sprite.flip_h = true
+	elif direction.x > 0:
+		$Sprite.flip_h = false
+	
 	velocity = move_and_slide(velocity, FLOOR_NORMAL)
 	
 func get_direction() -> Vector2:
@@ -15,6 +21,7 @@ func get_direction() -> Vector2:
 
 func calculate_velocity(direction: Vector2, jump_was_interruted: bool) -> Vector2:
 	var new_velocity = velocity
+	
 	new_velocity.y += calculate_gravity()
 	
 	if direction.y < 0:
